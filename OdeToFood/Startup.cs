@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace OdeToFood
 {
@@ -13,23 +14,59 @@ namespace OdeToFood
 		{
 			services.AddSingleton<ICustomService, CustomService>();
 			services.AddSingleton<IGreeter, Greeter>();
+			services.AddMvc();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(
 			IApplicationBuilder app,
 			IHostingEnvironment env,
-			IGreeter greeter)
+			IGreeter greeter, ILogger<Startup> logger)
 		{
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
 			}
+			//else
+			//{
+			//	app.UseExceptionHandler();
+			//}
+
+			//app.UseStaticFiles();
+			//app.UseDefaultFiles();
+
+			app.UseStaticFiles();
+			app.UseMvcWithDefaultRoute();
+//			app.UseFileServer();
+
+
+			app.Use(next =>
+			{
+				return async context =>
+				{
+					logger.LogInformation("requet incoming");
+					if (context.Request.Path.StartsWithSegments("/mym"))
+					{
+						await context.Response.WriteAsync("hit!!!");
+						logger.LogInformation("requet handled");
+					}
+					else
+					{
+						await next(context);
+						logger.LogInformation("response outgoing");
+					}
+				};
+			});
+
+			app.UseWelcomePage(new WelcomePageOptions
+			{
+				Path = "/wp"
+			});
 
 			app.Run(async (context) =>
 			{
 				var greeting = greeter.GetMessageOfTheDay();
-				await context.Response.WriteAsync(greeting);
+				await context.Response.WriteAsync($"{greeting} : {env.EnvironmentName}");
 			});
 		}
 	}
