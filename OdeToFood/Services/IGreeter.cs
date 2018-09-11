@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace OdeToFood
+namespace OdeToFood.Services
 {
 	public interface IGreeter
 	{
@@ -13,13 +13,13 @@ namespace OdeToFood
 
 		public Greeter(IConfiguration configuration, ICustomService customService)
 		{
-			_configuration = configuration;
-			_customService = customService;
+			this._configuration = configuration;
+			this._customService = customService;
 		}
 
 		public string GetMessageOfTheDay()
 		{
-			return _configuration["Greeting"];
+			return this._configuration["Greeting"];
 		}
 	}
 }

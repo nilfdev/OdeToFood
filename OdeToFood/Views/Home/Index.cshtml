@@ -1,0 +1,26 @@
+﻿@using OdeToFood.Models
+@model OdeToFood.ViewModels.HomeIndexViewModel
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>@Model.CurrentMessage</h1>
+	<table>
+		@foreach (var restaurant in Model.Restaurants)
+		{
+		<tr>
+			<td>@restaurant.Id </td>
+			<td>@restaurant.Name </td>
+			<td>
+				<a href="/home/details/@restaurant.Id">Details</a>
+				@Html.ActionLink("GO", "Details", new { id = restaurant.Id })
+				<a asp-action="Details" asp-route-id="@restaurant.Id">More</a>
+			</td>
+		</tr>
+		}
+	</table>
+</body>
+</html>
