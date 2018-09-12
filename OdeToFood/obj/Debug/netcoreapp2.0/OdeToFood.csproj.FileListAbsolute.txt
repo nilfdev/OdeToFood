@@ -8,7 +8,6 @@ D:\_repository\dotcore\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.AssemblyInfoI
 D:\_repository\dotcore\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.AssemblyInfo.cs
 D:\_repository\dotcore\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.dll
 D:\_repository\dotcore\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.pdb
-D:\_repository\dotcore\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.csprojAssemblyReference.cache
 E:\_repository\OdeToFood\OdeToFood\bin\Debug\netcoreapp2.0\OdeToFood.deps.json
 E:\_repository\OdeToFood\OdeToFood\bin\Debug\netcoreapp2.0\OdeToFood.runtimeconfig.json
 E:\_repository\OdeToFood\OdeToFood\bin\Debug\netcoreapp2.0\OdeToFood.runtimeconfig.dev.json
@@ -20,3 +19,4 @@ E:\_repository\OdeToFood\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.AssemblyInf
 E:\_repository\OdeToFood\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.AssemblyInfo.cs
 E:\_repository\OdeToFood\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.dll
 E:\_repository\OdeToFood\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.pdb
+D:\_repository\dotcore\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.csprojResolveAssemblyReference.cache
