@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OdeToFood.Models;
 using OdeToFood.Services;
 using OdeToFood.ViewModels;
 
@@ -37,9 +38,31 @@ namespace OdeToFood.Controllers
 			return View(model);
 		}
 
+		[HttpGet]
 		public IActionResult Create()
 		{
+
 			return View();
+		}
+
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public IActionResult Create(RestaurantEditModel model)
+		{
+			if (!ModelState.IsValid)
+			{
+				return View();
+			}
+
+			var newRestaurant = new Restaurant
+			{
+				Name = model.Name,
+				Cuisine = model.Cuisine
+			};
+			newRestaurant = _restaurantData.Add(newRestaurant);
+
+			return RedirectToAction(nameof(this.Details), new { id = newRestaurant.Id, foo = "bar" });
+
 		}
 	}
 }
