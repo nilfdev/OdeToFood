@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using OdeToFood.Data;
 using OdeToFood.Models;
 
@@ -14,14 +14,22 @@ namespace OdeToFood.Services
 			_context = context;
 		}
 
+		public Restaurant Add(Restaurant restaurant)
+		{
+			_context.Restaurants.Add(restaurant);
+			_context.SaveChanges();
+
+			return restaurant;
+		}
+
 		public Restaurant Get(int id)
 		{
-			throw new NotImplementedException();
+			return _context.Restaurants.FirstOrDefault(r => r.Id == id);
 		}
 
 		public IEnumerable<Restaurant> GetAll()
 		{
-			throw new NotImplementedException();
+			return _context.Restaurants.OrderBy(r => r.Name);
 		}
 	}
 }
