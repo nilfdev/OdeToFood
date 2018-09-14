@@ -1,0 +1,11 @@
+﻿@page "{name?}"
+
+@model HomePageModel
+
+@foreach (var restaurant in Model.CurrentRestaurants)
+{
+	<h1>
+		<span>@restaurant.Id</span>
+		<span>@restaurant.Name</span>
+	</h1>
+}
