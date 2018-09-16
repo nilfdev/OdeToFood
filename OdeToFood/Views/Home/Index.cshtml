@@ -4,24 +4,11 @@
 @{
 	ViewBag.Title = "Home page";
 }
-
-
-<table>
-	@foreach (var restaurant in Model.Restaurants)
-	{
-		<tr>
-			<td>@restaurant.Id </td>
-			<td>@restaurant.Name </td>
-			<td>
-				<a href="/home/details/@restaurant.Id">Details</a>
-				@Html.ActionLink("GO", "Details", new { id = restaurant.Id })
-				<a asp-action="Details" asp-route-id="@restaurant.Id">More</a>
-			</td>
-		</tr>
-	}
-</table>
-<a asp-action="Create">Add restaurant</a>
-
-@section footer{
-	<h1>@Model.CurrentMessage</h1>
+@foreach (var restaurant in Model.Restaurants)
+{
+	@Html.Partial("_Summary", restaurant);
 }
+
+<div>
+	<a asp-action="Create">Add restaurant</a>
+</div>

@@ -19,7 +19,7 @@ namespace OdeToFood.Services
 
 		public string GetMessageOfTheDay()
 		{
-			return this._configuration["Greeting"];
+			return _configuration["Greeting"];
 		}
 	}
 }
