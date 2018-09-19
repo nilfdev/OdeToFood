@@ -19,4 +19,4 @@ E:\_repository\OdeToFood\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.AssemblyInf
 E:\_repository\OdeToFood\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.AssemblyInfo.cs
 E:\_repository\OdeToFood\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.dll
 E:\_repository\OdeToFood\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.pdb
-D:\_repository\dotcore\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.csprojAssemblyReference.cache
+D:\_repository\dotcore\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.csprojResolveAssemblyReference.cache
