@@ -45,6 +45,8 @@ namespace OdeToFood
 			services.AddScoped<IRestaurantData, SqlRestaurantData>();
 
 			services.AddMvc();
+
+
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,7 +70,10 @@ namespace OdeToFood
 			app.UseRewriter(new RewriteOptions()
 				.AddRedirectToHttpsPermanent());
 
+			//wwwwroot folder
 			app.UseStaticFiles();
+
+			app.UseNodeModules(env.ContentRootPath);
 
 			app.UseAuthentication();
 
@@ -82,7 +87,7 @@ namespace OdeToFood
 				return async context =>
 				{
 					logger.LogInformation("requet incoming");
-					if (context.Request.Path.StartsWithSegments("/mym"))
+					if (context.Request.Path.StartsWithSegments("/mvm"))
 					{
 						await context.Response.WriteAsync("hit!!!");
 						logger.LogInformation("requet handled");
@@ -100,7 +105,7 @@ namespace OdeToFood
 				Path = "/wp"
 			});
 
-			app.Run(async (context) =>
+			app.Run(async context =>
 			{
 				var greeting = greeter.GetMessageOfTheDay();
 				//await context.Response.WriteAsync($"{greeting} : {env.EnvironmentName}");
@@ -108,6 +113,12 @@ namespace OdeToFood
 				context.Response.ContentType = "text/plain";
 				await context.Response.WriteAsync($"not found");
 			});
+
+			using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+			{
+				var context = serviceScope.ServiceProvider.GetRequiredService<OdeToFoodDbContext>();
+				context.Database.Migrate();
+			}
 		}
 
 		private void ConfigureRoutes(IRouteBuilder routeBuilder)

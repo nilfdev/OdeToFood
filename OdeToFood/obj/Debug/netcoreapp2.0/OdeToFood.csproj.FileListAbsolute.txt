@@ -13,7 +13,6 @@ E:\_repository\OdeToFood\OdeToFood\bin\Debug\netcoreapp2.0\OdeToFood.runtimeconf
 E:\_repository\OdeToFood\OdeToFood\bin\Debug\netcoreapp2.0\OdeToFood.runtimeconfig.dev.json
 E:\_repository\OdeToFood\OdeToFood\bin\Debug\netcoreapp2.0\OdeToFood.dll
 E:\_repository\OdeToFood\OdeToFood\bin\Debug\netcoreapp2.0\OdeToFood.pdb
-E:\_repository\OdeToFood\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.csprojResolveAssemblyReference.cache
 E:\_repository\OdeToFood\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.csproj.CoreCompileInputs.cache
 E:\_repository\OdeToFood\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.AssemblyInfoInputs.cache
 E:\_repository\OdeToFood\OdeToFood\obj\Debug\netcoreapp2.0\OdeToFood.AssemblyInfo.cs
